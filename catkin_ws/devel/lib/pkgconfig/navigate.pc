@@ -1,0 +1,8 @@
+prefix=/home/ec3bd/repos/rossimtut/catkin_ws/devel
+
+Name: navigate
+Description: Description of navigate
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib 
+Requires: 
