@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/ec3bd/repos/rossimtut/catkin_ws/install/setup.sh
+    local-name: /home/ec3bd/repos/ros_project/catkin_ws/install/setup.sh

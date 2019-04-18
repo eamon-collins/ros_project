@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/ec3bd/repos/rossimtut/catkin_ws/src
-# Build directory: /home/ec3bd/repos/rossimtut/catkin_ws/build
+# Source directory: /home/ec3bd/repos/ros_project/catkin_ws/src
+# Build directory: /home/ec3bd/repos/ros_project/catkin_ws/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -9,6 +9,7 @@ subdirs(turtlebot3/turtlebot3)
 subdirs(turtlebot3_msgs)
 subdirs(turtlebot3/turtlebot3_navigation)
 subdirs(turtlebot3_simulations/turtlebot3_simulations)
+subdirs(fetch)
 subdirs(navigate/navigate)
 subdirs(turtlebot3/turtlebot3_bringup)
 subdirs(turtlebot3/turtlebot3_example)

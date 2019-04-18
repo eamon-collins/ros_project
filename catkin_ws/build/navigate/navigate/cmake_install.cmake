@@ -1,8 +1,8 @@
-# Install script for directory: /home/ec3bd/repos/rossimtut/catkin_ws/src/navigate/navigate
+# Install script for directory: /home/ec3bd/repos/ros_project/catkin_ws/src/navigate/navigate
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ec3bd/repos/rossimtut/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ec3bd/repos/ros_project/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ec3bd/repos/rossimtut/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigate.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ec3bd/repos/ros_project/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigate.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigate/cmake" TYPE FILE FILES
-    "/home/ec3bd/repos/rossimtut/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigateConfig.cmake"
-    "/home/ec3bd/repos/rossimtut/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigateConfig-version.cmake"
+    "/home/ec3bd/repos/ros_project/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigateConfig.cmake"
+    "/home/ec3bd/repos/ros_project/catkin_ws/build/navigate/navigate/catkin_generated/installspace/navigateConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigate" TYPE FILE FILES "/home/ec3bd/repos/rossimtut/catkin_ws/src/navigate/navigate/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/navigate" TYPE FILE FILES "/home/ec3bd/repos/ros_project/catkin_ws/src/navigate/navigate/package.xml")
 endif()
 

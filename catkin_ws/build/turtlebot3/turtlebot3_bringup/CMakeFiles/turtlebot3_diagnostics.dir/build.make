@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ec3bd/repos/rossimtut/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/ec3bd/repos/ros_project/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ec3bd/repos/rossimtut/catkin_ws/build
+CMAKE_BINARY_DIR = /home/ec3bd/repos/ros_project/catkin_ws/build
 
 # Include any dependencies generated for this target.
 include turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/depend.make
@@ -58,17 +58,17 @@ include turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/prog
 include turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/flags.make
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/flags.make
-turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o: /home/ec3bd/repos/rossimtut/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o"
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o -c /home/ec3bd/repos/rossimtut/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp
+turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o: /home/ec3bd/repos/ros_project/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o"
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o -c /home/ec3bd/repos/ros_project/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.i"
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ec3bd/repos/rossimtut/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp > CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.i
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ec3bd/repos/ros_project/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp > CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.i
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.s"
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ec3bd/repos/rossimtut/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp -o CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.s
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ec3bd/repos/ros_project/catkin_ws/src/turtlebot3/turtlebot3_bringup/src/turtlebot3_diagnostics.cpp -o CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.s
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o.requires:
 
@@ -88,33 +88,33 @@ turtlebot3_diagnostics_OBJECTS = \
 # External object files for target turtlebot3_diagnostics
 turtlebot3_diagnostics_EXTERNAL_OBJECTS =
 
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libroscpp.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librostime.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libcpp_common.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics"
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/turtlebot3_diagnostics.dir/link.txt --verbose=$(VERBOSE)
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/src/turtlebot3_diagnostics.cpp.o
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build.make
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libroscpp.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_signals.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libroscpp_serialization.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/librostime.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /opt/ros/kinetic/lib/libcpp_common.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_system.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics: turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics"
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/turtlebot3_diagnostics.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build: /home/ec3bd/repos/rossimtut/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics
+turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build: /home/ec3bd/repos/ros_project/catkin_ws/devel/lib/turtlebot3_bringup/turtlebot3_diagnostics
 
 .PHONY : turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/build
 
@@ -123,10 +123,10 @@ turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/requires: tu
 .PHONY : turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/requires
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/clean:
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup && $(CMAKE_COMMAND) -P CMakeFiles/turtlebot3_diagnostics.dir/cmake_clean.cmake
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup && $(CMAKE_COMMAND) -P CMakeFiles/turtlebot3_diagnostics.dir/cmake_clean.cmake
 .PHONY : turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/clean
 
 turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/depend:
-	cd /home/ec3bd/repos/rossimtut/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ec3bd/repos/rossimtut/catkin_ws/src /home/ec3bd/repos/rossimtut/catkin_ws/src/turtlebot3/turtlebot3_bringup /home/ec3bd/repos/rossimtut/catkin_ws/build /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup /home/ec3bd/repos/rossimtut/catkin_ws/build/turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ec3bd/repos/ros_project/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ec3bd/repos/ros_project/catkin_ws/src /home/ec3bd/repos/ros_project/catkin_ws/src/turtlebot3/turtlebot3_bringup /home/ec3bd/repos/ros_project/catkin_ws/build /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup /home/ec3bd/repos/ros_project/catkin_ws/build/turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : turtlebot3/turtlebot3_bringup/CMakeFiles/turtlebot3_diagnostics.dir/depend
 

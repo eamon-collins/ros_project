@@ -1,8 +1,8 @@
-prefix=/home/ec3bd/repos/rossimtut/catkin_ws/install
+prefix=/home/ec3bd/repos/ros_project/catkin_ws/install
 
 Name: turtlebot3_example
 Description: Description of turtlebot3_example
 Version: 1.2.0
-Cflags: -I/home/ec3bd/repos/rossimtut/catkin_ws/install/include
-Libs: -L/home/ec3bd/repos/rossimtut/catkin_ws/install/lib 
+Cflags: -I/home/ec3bd/repos/ros_project/catkin_ws/install/include
+Libs: -L/home/ec3bd/repos/ros_project/catkin_ws/install/lib 
 Requires: rospy actionlib interactive_markers std_msgs sensor_msgs geometry_msgs nav_msgs visualization_msgs actionlib_msgs turtlebot3_msgs message_runtime

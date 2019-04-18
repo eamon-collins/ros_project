@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/ec3bd/repos/rossimtut/catkin_ws/build"
+export PWD="/home/ec3bd/repos/ros_project/catkin_ws/build"

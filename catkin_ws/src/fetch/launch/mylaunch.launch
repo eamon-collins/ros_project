@@ -1,0 +1,48 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi, ball_waffle_pi]"/>
+  <arg name="x_pos" default="0.0"/>
+  <arg name="y_pos" default="0.0"/>
+  <arg name="z_pos" default="0.0"/>
+
+
+  <param name="range_min" type="double" value=".12" />
+  <param name="range_max" type="double" value="3.5" />
+  <param name="a_min" type="double" value="0" />
+  <param name="a_max" type="double" value="6.28" />
+  <param name="a_inc" type="double" value=".0175" />
+  <param name="scan_time" type="double" value="0" />
+
+  <!-- <node name="meriwether_broadcaster" pkg="navigate" type="broadcast.py" respawn="false" output="screen" >
+    <param name="turtle" type="string" value="meriwether" />
+  </node> 
+
+  <node name="meriwether" pkg="navigate" type="meriwether.py" respawn="false" output="screen" >
+    <param name="V_explore" type="double" value="1" />
+    <param name="totalDistance" type="int" value="10" />
+    <param name="minDistanceWall" type="int" value="1" />
+  </node>
+-->
+
+
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find fetch)/worlds/SimpleWorld.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+<!--     <arg name="range_min" value=".1"/> -->
+  </include>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+<!-- 
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+    <param name="tf_prefix" value="meriwethertf"/>
+  </node>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find turtlebot3_gazebo)/rviz/turtlebot3_gazebo_model.rviz"/> -->
+</launch>

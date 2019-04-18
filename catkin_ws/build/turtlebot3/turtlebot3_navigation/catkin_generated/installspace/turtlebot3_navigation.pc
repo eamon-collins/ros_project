@@ -1,8 +1,8 @@
-prefix=/home/ec3bd/repos/rossimtut/catkin_ws/install
+prefix=/home/ec3bd/repos/ros_project/catkin_ws/install
 
 Name: turtlebot3_navigation
 Description: Description of turtlebot3_navigation
 Version: 1.2.0
 Cflags: 
-Libs: -L/home/ec3bd/repos/rossimtut/catkin_ws/install/lib 
+Libs: -L/home/ec3bd/repos/ros_project/catkin_ws/install/lib 
 Requires: 

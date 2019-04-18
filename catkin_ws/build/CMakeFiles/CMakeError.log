@@ -1,24 +1,24 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fa896/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fa896.dir/build.make CMakeFiles/cmTC_fa896.dir/build
-make[1]: Entering directory '/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fa896.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_fa896.dir/CheckSymbolExists.c.o   -c /home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_fa896
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa896.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_fa896.dir/CheckSymbolExists.c.o  -o cmTC_fa896 -rdynamic 
-CMakeFiles/cmTC_fa896.dir/CheckSymbolExists.c.o: In function `main':
+Run Build Command:"/usr/bin/make" "cmTC_9b787/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9b787.dir/build.make CMakeFiles/cmTC_9b787.dir/build
+make[1]: Entering directory '/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b787.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_9b787.dir/CheckSymbolExists.c.o   -c /home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_9b787
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b787.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_9b787.dir/CheckSymbolExists.c.o  -o cmTC_9b787 -rdynamic 
+CMakeFiles/cmTC_9b787.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_fa896.dir/build.make:97: recipe for target 'cmTC_fa896' failed
-make[1]: *** [cmTC_fa896] Error 1
-make[1]: Leaving directory '/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_fa896/fast' failed
-make: *** [cmTC_fa896/fast] Error 2
+CMakeFiles/cmTC_9b787.dir/build.make:97: recipe for target 'cmTC_9b787' failed
+make[1]: *** [cmTC_9b787] Error 1
+make[1]: Leaving directory '/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9b787/fast' failed
+make: *** [cmTC_9b787/fast] Error 2
 
-File /home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,22 +34,22 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp
+Change Dir: /home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_4985c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_4985c.dir/build.make CMakeFiles/cmTC_4985c.dir/build
-make[1]: Entering directory '/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_4985c.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_4985c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_4985c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4985c.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_4985c.dir/CheckFunctionExists.c.o  -o cmTC_4985c -rdynamic -lpthreads 
+Run Build Command:"/usr/bin/make" "cmTC_f94fd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f94fd.dir/build.make CMakeFiles/cmTC_f94fd.dir/build
+make[1]: Entering directory '/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f94fd.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f94fd.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f94fd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f94fd.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f94fd.dir/CheckFunctionExists.c.o  -o cmTC_f94fd -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_4985c.dir/build.make:97: recipe for target 'cmTC_4985c' failed
-make[1]: *** [cmTC_4985c] Error 1
-make[1]: Leaving directory '/home/ec3bd/repos/rossimtut/catkin_ws/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_4985c/fast' failed
-make: *** [cmTC_4985c/fast] Error 2
+CMakeFiles/cmTC_f94fd.dir/build.make:97: recipe for target 'cmTC_f94fd' failed
+make[1]: *** [cmTC_f94fd] Error 1
+make[1]: Leaving directory '/home/ec3bd/repos/ros_project/catkin_ws/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f94fd/fast' failed
+make: *** [cmTC_f94fd/fast] Error 2
 
 
