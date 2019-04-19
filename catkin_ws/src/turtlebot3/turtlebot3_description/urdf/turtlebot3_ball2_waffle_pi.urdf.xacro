@@ -45,12 +45,12 @@
     <origin rpy="1.57 1.57 1.57" xyz="0.0 0.04 0.16" />
     <collision>
       <geometry>
-        <cylinder length=".35" radius=".01" />
+        <cylinder length=".45" radius=".01" />
       </geometry>
     </collision>
     <visual>
       <geometry>
-        <cylinder length=".35" radius=".01" />
+        <cylinder length=".45" radius=".01" />
       </geometry>
     </visual>
   </link>
@@ -63,12 +63,12 @@
     <origin rpy="1.57 0 -0.75" xyz="0.0 -0.04 0.16" />
     <collision>
       <geometry>
-        <cylinder length=".35" radius=".01" />
+        <cylinder length=".45" radius=".01" />
       </geometry>
     </collision>
     <visual>
       <geometry>
-        <cylinder length=".35" radius=".01" />
+        <cylinder length=".45" radius=".01" />
       </geometry>
     </visual>
   </link>

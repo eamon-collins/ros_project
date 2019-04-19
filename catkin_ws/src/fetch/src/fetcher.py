@@ -41,12 +41,10 @@ def handle_image(msg):
 		print(e)
 	
 	(rows, cols, channels) = cv_image.shape
-	if cols > 60 and rows > 60:
-		cv2.circle(cv_image, (50,50),10,255)
 
 	gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
 	balls = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, dp=1, minDist=100, param1=100, param2=30, minRadius=5, maxRadius=250)
-	#print(balls)
+	print(balls)
 
 	if balls is not None:
 		# convert the (x, y) coordinates and radius of the circles to integers
@@ -67,7 +65,6 @@ def handle_image(msg):
 	cv2.imshow("view from turtlebot3", cv_image)
 	cv2.waitKey(3)
 
-	rospy.sleep(.1)
 
 
 if __name__ == '__main__':
