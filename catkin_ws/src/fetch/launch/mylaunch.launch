@@ -1,7 +1,7 @@
 <launch>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi, ball_waffle_pi]"/>
-  <arg name="x_pos" default="0.0"/>
-  <arg name="y_pos" default="0.0"/>
+  <arg name="x_pos" default="-3.0"/>
+  <arg name="y_pos" default="3.5"/>
   <arg name="z_pos" default="0.0"/>
 
 
@@ -12,21 +12,21 @@
   <param name="a_inc" type="double" value=".0175" />
   <param name="scan_time" type="double" value="0" />
 
-  <!-- <node name="meriwether_broadcaster" pkg="navigate" type="broadcast.py" respawn="false" output="screen" >
+<!--    <node name="meriwether_broadcaster" pkg="navigate" type="broadcast.py" respawn="false" output="screen" >
     <param name="turtle" type="string" value="meriwether" />
-  </node> 
+  </node>  -->
 
-  <node name="meriwether" pkg="navigate" type="meriwether.py" respawn="false" output="screen" >
+  <node name="fetcher" pkg="fetch" type="fetcher.py" respawn="false" output="screen" >
     <param name="V_explore" type="double" value="1" />
     <param name="totalDistance" type="int" value="10" />
     <param name="minDistanceWall" type="int" value="1" />
   </node>
--->
+
 
 
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find fetch)/worlds/SimpleWorld.world"/>
+    <arg name="world_name" value="$(find fetch)/worlds/challenge-world-t1"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>

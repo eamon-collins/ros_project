@@ -37,78 +37,58 @@
   </link>
 
   <!-- MY STUFF -->
-  <link name="arm_link">
+  <link name="arm1_link">
     <inertial>
         <mass value="0.18" />
         <inertia ixx="0.0002835" ixy="0.0" ixz="0.0" iyy="0.0002835" iyz="0.0" izz="0.000324" />
     </inertial>
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.16" />
+    <origin rpy="1.57 1.57 1.57" xyz="0.0 0.04 0.16" />
     <collision>
       <geometry>
-        <cylinder length=".3" radius=".01" />
+        <cylinder length=".35" radius=".01" />
       </geometry>
     </collision>
     <visual>
       <geometry>
-        <cylinder length=".3" radius=".01" />
+        <cylinder length=".35" radius=".01" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="arm2_link">
+    <inertial>
+        <mass value="0.18" />
+        <inertia ixx="0.0002835" ixy="0.0" ixz="0.0" iyy="0.0002835" iyz="0.0" izz="0.000324" />
+    </inertial>
+    <origin rpy="1.57 0 -0.75" xyz="0.0 -0.04 0.16" />
+    <collision>
+      <geometry>
+        <cylinder length=".35" radius=".01" />
+      </geometry>
+    </collision>
+    <visual>
+      <geometry>
+        <cylinder length=".35" radius=".01" />
       </geometry>
     </visual>
   </link>
 
   <joint name="base_to_arm_joint" type="revolute">
     <parent link="base_link"/>
-    <child link="arm_link"/>
-    <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
+    <child link="arm2_link"/>
+    <limit effort="1000.0" lower="0.0" upper="0.0" velocity="0.5"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0.0 0.0 0.15" rpy="0.0 0.0 0.0"/> 
+    <origin xyz="0.04 -0.04 0.1" rpy="1.57 0.0 0.75"/> 
   </joint>
-
-  <link name="catcher_link">
-    <inertial>
-        <mass value="0.05" />
-        <inertia ixx="0.0002835" ixy="0.0" ixz="0.0" iyy="0.0002835" iyz="0.0" izz="0.000324" />
-    </inertial>
-    <origin rpy="0 1.57 0" xyz="0.0 0.0 0.0" />
-    <collision>
-      <geometry>r
-        <mesh filename="package://fetch/tube.stl" scale="0.2 0.2 0.2"/>
-        <!-- <cylinder length=".1" radius=".03" /> -->
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 1.57 0" xyz="0.0 0.0 0.0" />
-      <geometry>
-        <mesh filename="package://fetch/tube.stl" scale="0.2 0.2 0.2"/>
-        <!-- <cylinder length=".1" radius=".03" /> -->
-      </geometry>
-    </visual>
-  </link>
 
   <joint name="arm_to_catcher_joint" type="continuous">
-    <parent link="arm_link"/>
-    <child link="catcher_link"/>
+    <parent link="base_link"/>
+    <child link="arm1_link"/>
     <axis xyz="1 0 0"/>
-    
-    <origin xyz="-0.04 0.0 0.23" rpy="0.0 0.0 0.0"/> 
+    <limit effort="1000.0" lower="0.0" upper="0.0" velocity="0.5"/>
+    <origin xyz="0.04 0.04 0.1" rpy="1.57 0.0 -0.75"/> 
   </joint>
 
-  <!-- ROS Control plugin for Gazebo -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/simple_model</robotNamespace>
-    </plugin>
-  </gazebo>
-
-  <!-- transmission -->
-  <transmission name="base_to_arm_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="motor1">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="base_to_arm_joint">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
 
 
   <!-- END MY STUFF -->
