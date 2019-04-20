@@ -17,6 +17,7 @@ import cv2
 import numpy as np
 from math import *
 import time
+from std_msgs.msg import Float64
 
 import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
