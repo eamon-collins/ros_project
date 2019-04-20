@@ -35,9 +35,16 @@
 <!--     <arg name="range_min" value=".1"/> -->
   </include>
 
+
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+
+  <!-- JOINT CONTROLLER STUFF -->
+  <rosparam file="$(find fetch)/joint_config.yaml" ns="/control" command="load" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/control" respawn="false" output="screen" args="base_to_arm_joint_position_controller joint_state_controller"/> 
+
 
 <!-- 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
