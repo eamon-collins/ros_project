@@ -1,6 +1,6 @@
 <launch>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi, ball_waffle_pi, ball2_waffle_pi]"/>
-  <arg name="x_pos" default="-3.0"/>
+  <arg name="x_pos" default="1"/>
   <arg name="y_pos" default="3.5"/>
   <arg name="z_pos" default="0.0"/>
 
@@ -22,6 +22,11 @@
     <param name="minDistanceWall" type="int" value="1" />
   </node>
 
+  <node name="joint" pkg="fetch" type="joint.py" respawn="false" output="screen" >
+    <param name="V_explore" type="double" value="1" />
+    <param name="totalDistance" type="int" value="10" />
+    <param name="minDistanceWall" type="int" value="1" />
+  </node>
 
 
 
