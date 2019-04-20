@@ -1,8 +1,0 @@
-prefix=/home/ec3bd/repos/ros_project/catkin_ws/install
-
-Name: fetch
-Description: Description of fetch
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/ec3bd/repos/ros_project/catkin_ws/install/lib 
-Requires: 
