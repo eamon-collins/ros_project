@@ -202,6 +202,7 @@ if __name__ == '__main__':
 	pose_read = rospy.Subscriber('/odom', Odometry, update_odom)
 	scan = rospy.Subscriber('/scan', LaserScan, handle_scan)
 	camera = rospy.Subscriber('/camera/rgb/image_raw', Image, handle_image)
+	joint = rospy.Publisher('/control/base_to_arm_joint_position_controller/command', Float64)
 	rate = rospy.Rate(1)
 	time.sleep(7)
 
