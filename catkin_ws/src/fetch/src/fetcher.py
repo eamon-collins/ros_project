@@ -15,8 +15,11 @@ import os
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
 import numpy as np
+from math import *
+import time
 
-
+import actionlib
+from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 
 
 class State():
@@ -26,13 +29,92 @@ class State():
 		self.bridge = CvBridge()
 
 
+def distance(px, py, qx, qy):
+    return sqrt((px - qx)**2 + (py-qy)**2)
+
 myState = State("findBalls", Odometry())
 
 def update_odom(msg):
 	myState.myOdom = msg
 
-def handle_scan(msg):
-	pass
+
+ranges = []
+def handle_scan(laser_message):
+    global ranges
+    ranges = laser_message.ranges
+
+
+ball_list = []
+move_list = []
+yaw_list = []
+target_ball_diameter = 0.2
+diameter_tolerance = 0.03
+distinguish_ball = 0.4
+
+
+def check_ball(balls, cv_image):
+	global ball_list, move_list, yaw_list
+	away = 0.5
+	if balls is not None:
+		balls = np.round(balls[0, :]).astype("float")
+		for (x, y, r) in balls:
+			# If color is not red, ignore it
+			if cv_image[y, x][0] != 0 or cv_image[y, x][1] != 0 or cv_image[y, x][2] != 255:
+				return
+            # Find the angle to face
+			sign = 1 if (x -320 <= 0) else -1
+			angle_rad = abs(x - 320) * (62.0 / 640) * (3.14 / 180)
+			angle_idx = int(angle_rad / (6.28 / len(ranges)))
+			idx = angle_idx if (x -320 <= 0) else len(ranges) - angle_idx
+			if idx == len(ranges):
+				idx = 0
+			#print(str(str(angle_rad) + " " + str(angle_idx) + " " + str(idx)))
+			#print("distance = " + str(ranges[idx]))
+			odom_x = myState.myOdom.pose.pose.position.x
+			odom_y = myState.myOdom.pose.pose.position.y
+			if str(ranges[idx]) == "inf" or ranges[idx] > 3.0:
+				return
+			a = myState.myOdom.pose.pose.orientation.x
+			b = myState.myOdom.pose.pose.orientation.y
+			c = myState.myOdom.pose.pose.orientation.z
+			d = myState.myOdom.pose.pose.orientation.w
+			(roll, pitch, yaw) = tf.transformations.euler_from_quaternion([a, b, c, d])
+
+			#print("roll = " + str(roll))
+			#print("pitch = " + str(pitch))
+
+			yaw += sign * angle_rad
+			# Find the ball postition and diameter
+			ball_x = odom_x + ranges[idx] * cos(yaw)
+			ball_y = odom_y + ranges[idx] * sin(yaw)
+			diameter = 2 * ranges[idx] * tan((r * 62.0 / 640) * (3.14 / 180))
+			#print("----")
+			#print(odom_x)
+			#print(odom_y)
+			#print("a = " + str(a))
+			#print("b = " + str(b))
+			#print("diameter = " + str(diameter))
+
+			# If diameter difference is less than 3cm use it
+			if abs(diameter - target_ball_diameter) > diameter_tolerance:
+				return
+			use = True
+			for item in ball_list:
+				# We don't distinguish balls within a distance (0.2m)
+				if distance(ball_x, ball_y, item[0], item[1]) < distinguish_ball:
+					use = False
+			if use:
+				goto_x = ball_x + away * cos(yaw + pi)
+				goto_y = ball_y + away * sin(yaw + pi)
+				ball_list.append([ball_x, ball_y])
+				print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+				move_list.append([goto_x, goto_y])
+				print("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY")
+				yaw_list.append(yaw)
+		        print("ball_list = " + str(ball_list))
+		        print("move_list = " + str(move_list))
+
+
 
 def handle_image(msg):
 	try:
@@ -41,10 +123,10 @@ def handle_image(msg):
 		print(e)
 	
 	(rows, cols, channels) = cv_image.shape
-
 	gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
 	balls = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, dp=1, minDist=100, param1=100, param2=30, minRadius=5, maxRadius=250)
-	print(balls)
+
+	check_ball(balls, cv_image)
 
 	if balls is not None:
 		# convert the (x, y) coordinates and radius of the circles to integers
@@ -67,26 +149,101 @@ def handle_image(msg):
 
 
 
+
+
+
+
+def move(target_x_pos, target_y_pos, yaw = 1.0):
+    print("A")
+    client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+    client.wait_for_server()
+    goal = MoveBaseGoal()
+    print("B")
+    goal.target_pose.header.frame_id = "map"
+    goal.target_pose.header.stamp = rospy.Time.now()
+    goal.target_pose.pose.position.x = target_x_pos
+    goal.target_pose.pose.position.y = target_y_pos
+    goal.target_pose.pose.orientation.w = 1.0
+
+    q = tf.transformations.quaternion_from_euler(0.00318615764724, 0, yaw, 'ryxz')
+    goal.target_pose.pose.orientation.x = q[0]
+    goal.target_pose.pose.orientation.y = q[1]
+    goal.target_pose.pose.orientation.z = q[2]
+    goal.target_pose.pose.orientation.w = q[3]
+
+    client.send_goal(goal)
+    wait = client.wait_for_result()
+    if not wait:
+        rospy.logerr("no signal")
+        rospy.signal_shutdown("no signal")
+    else:
+        return client.get_result()
+
+def move_manually(x , y):
+    pass
+	#while True:
+	#odom_x = myState.myOdom.pose.pose.position.x
+	#odom_y = myState.myOdom.pose.pose.position.y
+
+	#a = myState.myOdom.pose.pose.orientation.x
+	#b = myState.myOdom.pose.pose.orientation.y
+	#c = myState.myOdom.pose.pose.orientation.z
+	#d = myState.myOdom.pose.pose.orientation.w
+	#(roll, pitch, yaw) = tf.transformations.euler_from_quaternion([a, b, c, d])
+
+
+
+
+
 if __name__ == '__main__':
 	rospy.init_node('fetcher')
-
-	
-
-
+	scan = rospy.Subscriber('/scan', LaserScan, handle_scan)
 	turtle_vel = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 	pose_read = rospy.Subscriber('/odom', Odometry, update_odom)
 	scan = rospy.Subscriber('/scan', LaserScan, handle_scan)
 	camera = rospy.Subscriber('/camera/rgb/image_raw', Image, handle_image)
-	
-	move = Twist()
-	move.linear.x = 1
+	rate = rospy.Rate(1)
+	time.sleep(7)
 
-	turtle_vel.publish(move)
+	try:
+		# Firstly, explore the map to locate balls
+		original = [-2.0, 3.5]
+		#points = [[1.8, -1]] # Inside
+		points = [[3.5, 2]] # First point
+		#points = [[0, 3.5]]
 
-	rate = rospy.Rate(20)
+		for i in range(len(points)):
+			print("---------------------------------")
+			print("i = " + str(i))
+			print("point = " + str(points[i]))
+			result = move(points[i][0], points[i][1])#, pi/2)
+
+
+		my_ball_list = ball_list
+		my_move_list = move_list
+		my_yaw_list = yaw_list
+		print("=================================================")
+		print("There are {} balls".format(len(my_ball_list)))
+		print("my_ball_list = " + str(my_ball_list))
+		print("my_move_list = " + str(my_move_list))
+		print("=================================================")
+
+		for i in range(len(my_ball_list) - 1, -1, -1):
+			print("GO TO NEXT POINT : " + str(my_move_list[i]))
+			time.sleep(3)
+			result = move(my_move_list[i][0], my_move_list[i][1])#, my_yaw_list[i] + pi)
+			## Get the ball
+		    ## TO DO
+
+
+
+			#time.sleep(3)
+			#print("GO HOME ")
+			#result = move(original[0], original[1])
+
+	except rospy.ROSInterruptException:
+		rospy.loginfo("navigation interrupted.")
+
 	while not rospy.is_shutdown():
-
-		
-
 		rate.sleep()
 		#rospy.spin()
