@@ -1,12 +1,12 @@
 <launch>
   <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi, ball_waffle_pi, ball2_waffle_pi]"/>
 
-  <arg name="x_pos" default="-2.0"/>
+  <arg name="x_pos" default="1"/>
   <arg name="y_pos" default="3.5"/>
   <arg name="z_pos" default="0.0"/>
   <arg name="a_pos" default="0.0"/>
 
-  <arg name="w_name" default="challenge-world-t5"/>
+  <arg name="w_name" default="challenge-world-t1"/>
   <!-- <arg name="algorithm" default="4"/> -->
 
 
@@ -50,6 +50,9 @@
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+
+  <rosparam file="$(find fetch)/joint_config.yaml" ns="/control" command="load" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/control" respawn="false" output="screen" args="base_to_arm_joint_position_controller joint_state_controller"/> 
 
   <!-- <node name="turtle" pkg="fetch" type="turtle_method_$(arg algorithm).py" output="screen"/> -->
 
