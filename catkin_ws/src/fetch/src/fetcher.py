@@ -192,7 +192,7 @@ def move_manually(x , y, vel_publisher):
 	(roll, pitch, currYaw) = tf.transformations.euler_from_quaternion(currQuat)
 	while (abs(target_yaw - currYaw) > .01):
 		cmd = Twist()
-		cmd.angular.z = .6 * abs(target_yaw - currYaw)
+		cmd.angular.z = .6 * abs(target_yaw - currYaw) if .6 * abs(target_yaw - currYaw) < 0.6 else 0.6
 		vel_publisher.publish(cmd)
 		currQuat = [myState.myOdom.pose.pose.orientation.x, myState.myOdom.pose.pose.orientation.y, myState.myOdom.pose.pose.orientation.z, myState.myOdom.pose.pose.orientation.w]
 		(roll, pitch, currYaw) = tf.transformations.euler_from_quaternion(currQuat)
@@ -226,9 +226,13 @@ if __name__ == '__main__':
 		# Firstly, explore the map to locate balls
 		original = [-2.0, 3.5]
 		#points = [[1.8, -1]] # Inside
-		points = [[3.5, 2.0]] # First point
-		points = [[1.1, 3.5]]
-		#points = [[0, 3.5]]
+		#points = [[3.5, 2.0]] # First point
+		#points = [[1.1, 3.5]] # Near point
+
+		points = [[3.5, 2.0]] # t1 t2 t4 t6 t7
+		#points = [[0, -3.5]] # t3
+		#points = [[1.8, -1]] # t5
+
 
 		for i in range(len(points)):
 			print("---------------------------------")
@@ -265,7 +269,6 @@ if __name__ == '__main__':
 			#release the ball
 			joint.publish(Float64(0))
 			time.sleep(3)
-			move(3.0 , 3.5)
 
 	except rospy.ROSInterruptException:
 		rospy.loginfo("navigation interrupted.")
