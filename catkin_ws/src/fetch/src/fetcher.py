@@ -271,14 +271,11 @@ if __name__ == '__main__':
 			#release the ball
 			joint.publish(Float64(0.3))
 			time.sleep(3)
-<<<<<<< HEAD
-=======
 			
 			#clear detected obstructions
 			rospy.wait_for_service('/move_base/clear_costmaps')		
 			clear_costmaps = rospy.ServiceProxy('/move_base/clear_costmaps', std_srvs.srv.Empty)
 			clear_costmaps(std_srvs.srv.EmptyRequest())
->>>>>>> 58053825def9855585146c875ae3b785941169fe
 
 	except rospy.ROSInterruptException:
 		rospy.loginfo("navigation interrupted.")
