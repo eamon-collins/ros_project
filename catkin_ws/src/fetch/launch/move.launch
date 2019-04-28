@@ -6,8 +6,9 @@
   <arg name="z_pos" default="0.0"/>
   <arg name="a_pos" default="0.0"/>
 
+
   <arg name="w_name" default="challenge-world-t7"/>
-  <!-- <arg name="algorithm" default="4"/> -->
+
 
 
 

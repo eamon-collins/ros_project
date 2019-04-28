@@ -21,6 +21,7 @@ from std_msgs.msg import Float64
 
 import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
+import std_srvs.srv
 
 
 class State():
@@ -126,7 +127,7 @@ def handle_image(msg):
 	
 	(rows, cols, channels) = cv_image.shape
 	gray = cv2.cvtColor(cv_image, cv2.COLOR_BGR2GRAY)
-	balls = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, dp=1, minDist=100, param1=100, param2=30, minRadius=5, maxRadius=250)
+	balls = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, dp=1.2, minDist=100, param1=100, param2=30, minRadius=5, maxRadius=250)
 
 	if not doneSearching:
 		check_ball(balls, cv_image)
@@ -222,13 +223,14 @@ if __name__ == '__main__':
 	rate = rospy.Rate(1)
 	time.sleep(7)
 
+	joint.publish(Float64(.3))
+
 	try:
 		# Firstly, explore the map to locate balls
 		original = [-2.0, 3.5]
 		#points = [[1.8, -1]] # Inside
 		#points = [[3.5, 2.0]] # First point
 		#points = [[1.1, 3.5]] # Near point
-
 		points = [[3.5, 2.0]] # t1 t2 t4 t6 t7
 		#points = [[0, -3.5]] # t3
 		#points = [[1.8, -1]] # t5
@@ -251,7 +253,7 @@ if __name__ == '__main__':
 		print("my_move_list = " + str(my_move_list))
 		print("=================================================")
 
-		for i in range(len(my_ball_list) - 1, -1, -1):
+		for i in range(len(my_ball_list)):
 			print("GO TO NEXT POINT : " + str(my_move_list[i]))
 			time.sleep(3)
 			result = move(my_move_list[i][0], my_move_list[i][1])#, my_yaw_list[i] + pi)
@@ -267,8 +269,16 @@ if __name__ == '__main__':
 			print("GO HOME ")
 			result = move(original[0], original[1])
 			#release the ball
-			joint.publish(Float64(0))
+			joint.publish(Float64(0.3))
 			time.sleep(3)
+<<<<<<< HEAD
+=======
+			
+			#clear detected obstructions
+			rospy.wait_for_service('/move_base/clear_costmaps')		
+			clear_costmaps = rospy.ServiceProxy('/move_base/clear_costmaps', std_srvs.srv.Empty)
+			clear_costmaps(std_srvs.srv.EmptyRequest())
+>>>>>>> 58053825def9855585146c875ae3b785941169fe
 
 	except rospy.ROSInterruptException:
 		rospy.loginfo("navigation interrupted.")
