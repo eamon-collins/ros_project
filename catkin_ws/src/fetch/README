@@ -6,6 +6,8 @@ export TURTLEBOT3_MODEL=ball_waffle_pi
 
 roslaunch fetch move.launch
 
+parameterize the world with arg w_name, see below.
+
 modify the 'points' array around line 230 of fetcher.py to change where the robot will go to before stopping the search phase. This is set earlier or later in the map to save time, theoretically the one labeled t5 will solve every map but will take forever to do it.
 
 ####
