@@ -1,28 +1,27 @@
 README
 
 TO RUN:
-as always: source catkin_ws/devel/setup.bash
-export TURTLEBOT3_MODEL= either 'ball_waffle_pi' for the tube model or 'ball2_waffle_pi' for the two cylinder model
+source catkin_ws/devel/setup.bash
+export TURTLEBOT3_MODEL=ball_waffle_pi
 
-roslaunch fetch mylaunch.launch
+roslaunch fetch move.launch
 
-should launch gazebo and have an opencv image with the highlighted ball.
+modify the 'points' array around line 230 of fetcher.py to change where the robot will go to before stopping the search phase. This is set earlier or later in the map to save time, theoretically the one labeled t5 will solve every map but will take forever to do it.
 
 ####
 
-relevant files (ie don't modify/delete these unless you're certain):
+relevant files:
 
 in fetch/:
-	tube.stl	-	mesh file specifying the tube that makes up the end of the catcher-arm. You probably won't have to touch this ever
+	tube.stl	-	mesh file specifying the tube that makes up the end of the catcher-arm.
 	
-	launch/mylaunch.launch 	-	my launch file, of note is that it currently starts a 'fetcher.py' node, sources the world description from fetch/worlds, and sources the robot description from turtlebot3_description/urdf/
+	launch/move.launch 	-	launch file, starts a 'fetcher.py' node, sources the world description from fetch/worlds, and sources the robot description from turtlebot3_description/urdf/. Also starts a controller manager node to control whether the arm is up or down.
 	
-	src/fetcher.py 	-	currently subscribes to the camera topic, finds circles in the image, and shows an updating picture of the image plus delineated circle
+	src/fetcher.py 	-	All the logic for finding and fetching balls. The heart of the operation.
 
-	worlds/* 	-	the different worlds, you can sub these in in mylaunch.launch, has a simpleworld plus all the test cases provided by Prof Elbaum
-
+	worlds/* 	-	the different test cases, you can sub these in in move.launch by setting the arg w_name, cases t1-5 are the initial ones provided by you, t6 has a big red ball and small red ball that the robot successfully ignores, and t7 has balls of different color scattered in that the robot successfully ignores. We fail consistently only on t4.
 
 in turtlebot3/turtlebot3_description/urdf/:
 	turtlebot3_ball_waffle_pi.urdf.xacro	-	modified to have a movable arm with hollow cylinder at the end to "catch" the balls. sources tube from fetch/tube.stl
 
-	turtlebot3_ball2_waffle_pi.urdf.xacro 	-	modified to have 2 rigid cylinders project from the turtlebot at an angle so as to catch balls
+	turtlebot3_ball2_waffle_pi.urdf.xacro 	-	modified to have 2 rigid cylinders project from the turtlebot at an angle so as to catch balls, not our final design, just included for you to see the design process.
