@@ -193,7 +193,7 @@ def move_manually(x , y, vel_publisher):
 	(roll, pitch, currYaw) = tf.transformations.euler_from_quaternion(currQuat)
 	while (abs(target_yaw - currYaw) > .01):
 		cmd = Twist()
-		cmd.angular.z = .6 * abs(target_yaw - currYaw)
+		cmd.angular.z = .6 * abs(target_yaw - currYaw) 
 		vel_publisher.publish(cmd)
 		currQuat = [myState.myOdom.pose.pose.orientation.x, myState.myOdom.pose.pose.orientation.y, myState.myOdom.pose.pose.orientation.z, myState.myOdom.pose.pose.orientation.w]
 		(roll, pitch, currYaw) = tf.transformations.euler_from_quaternion(currQuat)
@@ -229,9 +229,9 @@ if __name__ == '__main__':
 		# Firstly, explore the map to locate balls
 		original = [-2.0, 3.5]
 		#points = [[1.8, -1]] # Inside
-		points = [[3.5, 0]] # First point
-		#points = [[1.1, 3.5]]
-		#points = [[1.8, -1]]  #t5
+		points = [[3.5, 0]] # t1 and t2 and t4
+		#points = [[0, -2.5]] #t3
+		points = [[1.8, -1]]  #t5
 
 		for i in range(len(points)):
 			print("---------------------------------")
