@@ -4,15 +4,19 @@ TO RUN:
 source catkin_ws/devel/setup.bash
 export TURTLEBOT3_MODEL=ball_waffle_pi
 
-roslaunch fetch move.launch
+ex:
+roslaunch fetch move.launch w_name:=challenge-world-t6
 
-parameterize the world with arg w_name, see below.
+parameterize the world with arg w_name, see below for more information on testcases
 
-modify the 'points' array around line 230 of fetcher.py to change where the robot will go to before stopping the search phase. This is set earlier or later in the map to save time, theoretically the one labeled t5 will solve every map but will take forever to do it.
+
 
 ####
 
 relevant files:
+
+in videos/ - recordings of our robot doing various testcases, and succeeding at all but t4. Make sure our code runs and then watch these to verify.
+
 
 in fetch/:
 	tube.stl	-	mesh file specifying the tube that makes up the end of the catcher-arm.

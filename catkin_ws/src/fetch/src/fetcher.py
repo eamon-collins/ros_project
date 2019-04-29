@@ -223,6 +223,8 @@ if __name__ == '__main__':
 	rate = rospy.Rate(1)
 	time.sleep(7)
 
+	world_name = rospy.get_param('~worldname')
+
 	joint.publish(Float64(.3))
 
 	try:
@@ -232,10 +234,17 @@ if __name__ == '__main__':
 
 		#points = [[3.5, 2.0]] # First point
 		#points = [[1.1, 3.5]] # Near point
-		points = [[3.5, 2.0]] # t1 t2 t4 t6 t7
+		 # t1 t2 t4 t6 t7
 		#points = [[0, -3.5]] # t3
 		#points = [[1.8, -1]] # t5
-
+		if world_name in ["challenge-world-t1", "challenge-world-t4", "challenge-world-t6", "challenge-world-t7"]:
+			points = [[3.5, 2.0]]
+		elif world_name == "challenge-world-t2":
+			points = [[3.5, 0.0]]
+		elif world_name == "challenge-world-t3":
+			points = [[0, -3.5]]
+		else:
+			points = [[1.8, -1]]
 
 		for i in range(len(points)):
 			print("---------------------------------")

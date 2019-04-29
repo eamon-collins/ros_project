@@ -26,6 +26,7 @@
     <param name="V_explore" type="double" value="1" />
     <param name="totalDistance" type="int" value="10" />
     <param name="minDistanceWall" type="int" value="1" />
+    <param name="worldname" type="string" value="$(arg w_name)" />
   </node> 
 
 
